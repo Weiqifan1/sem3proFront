@@ -1,83 +1,55 @@
 import React, { Component } from "react"
 import facade from "./apiFacade";
+import {
+  HashRouter as Router,
+  Route,
+  Link, NavLink
+} from 'react-router-dom'
+import './App.css';
+import Login from './Login'
+import {About} from './Texts'
 
-class LogIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { username: "", password: "" }
-  }
 
-  login = (evt) => {
-    evt.preventDefault();
-    this.props.login(this.state.username, this.state.password);
-  }
+function Header() {
 
-  onChange = (evt) => {
-    this.setState({ [evt.target.id]: evt.target.value })
-  }
+  return (
+    <div>
 
-  render() {
-    return (
-      <div>
-        <h2>Login</h2>
-        <form onSubmit={this.login} onChange={this.onChange} >
-          <input placeholder="User Name" id="username" />
-          <input placeholder="Password" id="password" />
-          <button>Login</button>
-        </form>
-      </div>
-    )
-  }
-}
-class LoggedIn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { dataFromServer: "Fetching!!" };
-  }
-  componentDidMount() {
-    try {
-      facade.fetchData().then(res => this.setState({ dataFromServer: res }));
-    } catch (error) {
+      <ul className="header">
+
+        <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
+        <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+        <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
       
-    }
-   
-  }
-  render() {
-    return (
-      <div>
-        <h2>Data Received from server</h2>
-        <h3>{this.state.dataFromServer}</h3>
-      </div>
-    )
-  }
+
+      </ul></div>
+  )
+
 }
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loggedIn: false }
-  }
+const App = () => (
+  <div>
+    <main>
+      <Router>
+    
+     
+  
+        <div> 
+          <Header> </Header> 
+          {/* <hr /> */}
 
-  logout = () => {
-    facade.logout();
-    this.setState({ loggedIn: false });
-  }
+        
+          <Route exact path="/" component={Login} />
+          <Route path="/about" component={About} />
+          <Route path="/Login" component={Login} />
+        
+        </div>
+    
+      {/* <SeedFooter></SeedFooter> */}
+      </Router>
+    </main>
 
-  login = (user, pass) => {
-    facade.login(user, pass)
-      .then(res => this.setState({ loggedIn: true }));
-  }
 
-  render() {
-    return (
-      <div>
-        {!this.state.loggedIn ? (<LogIn login={this.login} />) :
-          (<div>
-            <LoggedIn />
-            <button onClick={this.logout}>Logout</button>
-          </div>)}
-      </div>
-    )
-  }
-}
+  </div>
+)
 export default App;
