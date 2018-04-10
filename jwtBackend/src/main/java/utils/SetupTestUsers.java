@@ -17,7 +17,7 @@ public class SetupTestUsers {
           Role adminRole = new Role("admin");
           User user = new User("user", "test");
           user.addRole(userRole);
-          User admin = new User("admin", "test");
+          User admin = new User("admin","test");
           admin.addRole(adminRole);
           User both = new User("user_admin", "test");
           both.addRole(userRole);
