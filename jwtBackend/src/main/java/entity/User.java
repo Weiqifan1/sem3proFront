@@ -89,5 +89,6 @@ public class User implements Serializable {
     public void addRole(Role userRole) {
         roleList.add(userRole);
     }
+    
 
 }
