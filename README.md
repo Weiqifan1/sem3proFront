@@ -1,6 +1,10 @@
 # CourseAssigment-3
 CA3 making a seed for our group
 
+databasen link https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/
+
+
+
 for at arbejde med frontend skal der førse gang man henter programmet køres fælgende fra terminal
 npm install
 (npm install yarn) optional but faster
