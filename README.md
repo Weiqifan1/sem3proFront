@@ -1,5 +1,8 @@
 # CourseAssigment-3
 CA3 making a seed for our group
 
-Lav en ny persistence unit, der hedder "pu".
-Lav en database, der hedder seed_db.
+For at arbejde med SeedMobileApp skal følgende køres fra commandlinjen
+npm install
+  npm install -g create-react-native-app
+  npm install tcomb-form-native
+  npm install react-navigation --save
