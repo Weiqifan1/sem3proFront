@@ -1,6 +1,9 @@
 # CourseAssigment-3
 CA3 making a seed for our group
 
+
+Skal hvis man vil køre frontenden med en deployed database ska url i en af de første linjer i api-facaden ændres til nedenstående:
+
 databasen link https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/
 
 
