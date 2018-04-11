@@ -12,5 +12,6 @@ C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\mai
 C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\entity\Role.java
 C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\entity\UserFacade.java
 C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\exceptions\AuthenticationException.java
+C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\security\RemoteServerEndpoint.java
 C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\security\JWTSecurityContext.java
 C:\Users\Ejer\Documents\GitHub\CourseAssigment-3-The-Backend-\jwtBackend\src\main\java\security\LoginEndpoint.java

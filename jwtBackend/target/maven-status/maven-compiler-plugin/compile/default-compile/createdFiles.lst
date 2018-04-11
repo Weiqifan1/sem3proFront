@@ -1,4 +1,5 @@
 utils\SetupTestUsers.class
+security\RemoteServerEndpoint.class
 exceptions\GenericExceptionMapper.class
 exceptions\NotFoundException.class
 security\JWTSecurityContext.class
