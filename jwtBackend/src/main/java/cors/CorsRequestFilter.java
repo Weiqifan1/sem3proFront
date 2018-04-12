@@ -7,6 +7,12 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
+
+/**
+ * 
+ * @author Ticondrus
+ */
+
 //Comment out these two annotations below to disable CORS-handling
 @Provider  //This will ensure that the filter is used "automatically"
 @PreMatching
