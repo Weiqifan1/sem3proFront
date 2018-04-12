@@ -11,7 +11,7 @@ import {About} from './Texts'
 
 
 function Header() {
-
+console.log('Hey!!!');
   return (
     <div>
 
