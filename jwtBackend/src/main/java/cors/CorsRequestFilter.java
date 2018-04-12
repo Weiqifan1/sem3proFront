@@ -12,6 +12,13 @@ import javax.ws.rs.ext.Provider;
 @PreMatching
 public class CorsRequestFilter implements ContainerRequestFilter {
   private final static Logger log = Logger.getLogger(CorsRequestFilter.class.getName());
+  
+  /**
+   * filer(...): Is loging the ContainerRequestContext and abort request with a OK status response.
+   * So the response can get the desired response instead of denial.
+   * @param requestCtx
+   * @throws IOException 
+   */
   @Override
   public void filter(ContainerRequestContext requestCtx) throws IOException {
     // When HttpMethod comes as OPTIONS, just acknowledge that it accepts...
