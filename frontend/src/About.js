@@ -1,5 +1,6 @@
 import React from 'react'
 import Login, { LoggedIn } from './Login';
+import StarwarsInfo from './StarwarsInfo';
 
 const About = ( {data} ) => {
   const userRole = data;
@@ -7,8 +8,8 @@ const About = ( {data} ) => {
   var view = <p>You have to login to see this page!</p>;
 
   if(userRole === "user") {
-    view = <p>user stuff</p>
-    
+    view = <StarwarsInfo />
+
   } else if(userRole === "admin") {
     view = <p>Admin stuff</p>
   } 
