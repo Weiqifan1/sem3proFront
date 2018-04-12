@@ -24,6 +24,13 @@ function Navigation() {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userroles: this.props.userroles
+    }
+  }
 
   render() {
 
@@ -37,10 +44,10 @@ class App extends Component {
             <Navigation />
             <Switch>
 
-            <Route exact path="/" component={Login} />
-            <Route path="/about" component={About} />
-            <Route path="/Login" component={Login} />
-            <Route component={NoMatch} />
+              <Route exact path="/" component={Login} />
+              <Route path="/about" component={About} />
+              <Route path="/Login" component={Login} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
 
