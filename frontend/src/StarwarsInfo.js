@@ -14,7 +14,7 @@ function characterPropMany(props){
 //    return (<td>props.)
 
 
-  const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/api/remote"; 
+  const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/api/remote/people"; 
   
   
   class  CharacterTable extends Component {

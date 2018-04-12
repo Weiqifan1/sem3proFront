@@ -1,16 +1,18 @@
 import React, { Component } from "react"
 import facade from "./apiFacade";
-import {
-  HashRouter as Router,
-  Route,
-  Link, NavLink
-} from 'react-router-dom'
+import { HashRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
 import './App.css';
-import Login from './Login'
-import {About} from './Texts'
+import Login, { LoggedIn } from './Login'
+import { About } from './Texts'
 
 
-function Header() {
+const Navigation = (props) => {
+
+  var userRole = props.userRole;
+
+  if (userRole === "user") {
+    var navigationView = <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+  }
 
   return (
     <div>
@@ -18,38 +20,65 @@ function Header() {
       <ul className="header">
 
         <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-        <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+        {navigationView}
         <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
       
+      </ul>
 
-      </ul></div>
+    </div>
   )
 
 }
 
-const App = () => (
-  <div>
-    <main>
-      <Router>
-    
-     
-  
-        <div> 
-          <Header> </Header> 
-          {/* <hr /> */}
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-        
-          <Route exact path="/" component={Login} />
-          <Route path="/about" component={About} />
-          <Route path="/Login" component={Login} />
-        
-        </div>
-    
-      {/* <SeedFooter></SeedFooter> */}
-      </Router>
-    </main>
+    this.state = {
+      //userroles: this.props.userroles
+      userroles: ""
+    }
+  }
 
+  render() {
 
-  </div>
-)
+    var userRole = this.props.userroles;
+    console.log('App: ' + userRole);
+    return (
+      <div>
+
+        <HashRouter>
+          <div>
+
+            <Navigation userRole={userRole} />
+
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route path="/about" component={About} />
+              <Route path="/Login" component={Login} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+
+        </HashRouter>
+
+        {/* <hr /> */}
+
+        <main>
+        </main>
+
+        {/* <SeedFooter></SeedFooter> */}
+
+      </div>
+    );
+  }
+}
+
 export default App;
+
+const NoMatch = () => (
+  <div>
+    <h1>404 Wrong url!</h1>
+  </div>
+);
+
