@@ -1,6 +1,7 @@
 
 import React, { Component } from "react"
 import facade from "./apiFacade";
+import jwtDecode from 'jwt-decode';
 export class LogIn extends Component {
     constructor(props) {
       super(props);
@@ -36,7 +37,17 @@ export class LogIn extends Component {
   export class LoggedIn extends Component {
     constructor(props) {
       super(props);
-      this.state = { dataFromServer: "Fetching!!" };
+
+      var userToken = facade.getToken();
+      var decoded = jwtDecode(userToken);
+      var userName = decoded.sub;
+      var userRoles = decoded.roles;
+
+      this.state = { 
+        dataFromServer: "Fetching!!",
+        username: userName,
+        userroles: userRoles,
+       };
     }
     componentDidMount() {
       try {
