@@ -5,7 +5,7 @@ import jwtDecode from 'jwt-decode';
 import App from './App';
 import About from './About';
 
-export class LogIn extends Component {
+export default class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", password: "" }
@@ -64,10 +64,10 @@ export class LoggedIn extends Component {
 
     var userroles = this.state.userroles;
     console.log(userroles);
-    //<About data={userroles} />
     return (
       <div>
 
+      <About data={userroles} />
       <App userroles={userroles} />
       
         <h2>Data Received from server</h2>
@@ -80,7 +80,7 @@ export class LoggedIn extends Component {
 // <App userroles={this.state.userroles} />
 
 
-export default class Login extends Component {
+/* export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedIn: false }
@@ -109,5 +109,5 @@ export default class Login extends Component {
 
         </div></div>
     )
-  }
-}
+  } */
+//}
