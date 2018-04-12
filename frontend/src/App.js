@@ -1,9 +1,11 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import facade from "./apiFacade";
-import { HashRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
+import { HashRouter, Route, Link, NavLink, Switch } from 'react-router-dom';
 import './App.css';
-import Login, { LoggedIn } from './Login'
-import { About } from './Texts'
+import LogIn, { LoggedIn } from './Login';
+import Texts from './Texts';
+import About from './About';
+import Home from './Home';
 
 
 const Navigation = (props) => {
@@ -21,8 +23,8 @@ const Navigation = (props) => {
 
         <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
         {navigationView}
-        <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
-      
+        <li><NavLink activeClassName="active" to="/texts">Texts</NavLink></li>
+
       </ul>
 
     </div>
@@ -35,9 +37,20 @@ class App extends Component {
     super(props);
 
     this.state = {
+      loggedIn: false,
       //userroles: this.props.userroles
       userroles: ""
     }
+  }
+
+  logout = () => {
+    facade.logout();
+    this.setState({ loggedIn: false });
+  }
+
+  login = (user, pass) => {
+    facade.login(user, pass)
+      .then(res => this.setState({ loggedIn: true }));
   }
 
   render() {
@@ -53,9 +66,9 @@ class App extends Component {
             <Navigation userRole={userRole} />
 
             <Switch>
-              <Route exact path="/" component={Login} />
+              <Route exact path="/" component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/Login" component={Login} />
+              <Route path="/texts" component={Texts} />
               <Route component={NoMatch} />
             </Switch>
           </div>
@@ -63,6 +76,12 @@ class App extends Component {
         </HashRouter>
 
         {/* <hr /> */}
+
+        {!this.state.loggedIn ? (<LogIn login={this.login} />) :
+          (<div>
+            <LoggedIn />
+            <button onClick={this.logout}>Logout</button>
+          </div>)}
 
         <main>
         </main>
