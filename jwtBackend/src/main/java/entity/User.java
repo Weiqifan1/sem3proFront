@@ -15,9 +15,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.mindrot.jbcrypt.BCrypt;
 
+/**
+ * 
+ * @author Ticondrus
+ * 
+ * Javadoc: User.java is a class that do getters and setters plus holds or update the userdata in a list created from the database -
+ * or the list, whether it is a user creation or user login.
+ */
+
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
+    
 
     private static final long serialVersionUID = 1L;
     @Id
