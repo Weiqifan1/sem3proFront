@@ -58,17 +58,18 @@ export class LoggedIn extends Component {
     } catch (error) {
 
     }
-
   }
+
   render() {
 
     var userroles = this.state.userroles;
-console.log(userroles);
+    console.log(userroles);
+    //<About data={userroles} />
     return (
       <div>
 
-       <About data={userroles} />
-
+      <App userroles={userroles} />
+      
         <h2>Data Received from server</h2>
         <h3>{this.state.dataFromServer}</h3>
       </div>

@@ -2,11 +2,17 @@ import React, { Component } from "react"
 import facade from "./apiFacade";
 import { HashRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
 import './App.css';
-import Login from './Login'
+import Login, { LoggedIn } from './Login'
 import { About } from './Texts'
 
 
-function Navigation() {
+const Navigation = (props) => {
+
+  var userRole = props.userRole;
+
+  if (userRole === "user") {
+    var navigationView = <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+  }
 
   return (
     <div>
@@ -14,11 +20,12 @@ function Navigation() {
       <ul className="header">
 
         <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
-        <li><NavLink activeClassName="active" to="/about">About</NavLink></li>
+        {navigationView}
         <li><NavLink activeClassName="active" to="/login">Login</NavLink></li>
+      
+      </ul>
 
-
-      </ul></div>
+    </div>
   )
 
 }
@@ -28,22 +35,24 @@ class App extends Component {
     super(props);
 
     this.state = {
-      userroles: this.props.userroles
+      //userroles: this.props.userroles
+      userroles: ""
     }
   }
 
   render() {
 
-    var user = this.props.userroles;
-
+    var userRole = this.props.userroles;
+    console.log('App: ' + userRole);
     return (
       <div>
 
         <HashRouter>
           <div>
-            <Navigation />
-            <Switch>
 
+            <Navigation userRole={userRole} />
+
+            <Switch>
               <Route exact path="/" component={Login} />
               <Route path="/about" component={About} />
               <Route path="/Login" component={Login} />
