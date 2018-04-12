@@ -1,4 +1,5 @@
-
+import React from 'react'
+import AsyncStorage from 'react-native'
 
 
 
@@ -18,29 +19,41 @@ class AppFacade {
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
 
-    setToken = (token) => {
-        localStorage.setItem('jwtToken', token)
+    setToken = async (token) => {
+        try {
+            await AsyncStorage.setItem('jwtToken', token)
+        } catch(error){
+            alert("in setToken  "+error)
+        }
     }
-    getToken = () => {
-        return localStorage.getItem('jwtToken')
+
+    getToken =async () => {
+        try {
+          await AsyncStorage.getItem('jwtToken');
+        } catch(error){
+            alert("getToken  "+error)
+        }
     }
+
     loggedIn = () => {
         const loggedIn = this.getToken() != null;
         return loggedIn;
     }
-    logout = () => {
-        localStorage.removeItem("jwtToken");
+    logout = async () => {
+        try {
+            await AsyncStorage.removeItem('jwtToken');
+        } catch(error){
+            alert("logout "+error)
+        }
     }
 
     login = (user, pass) => {
-        try {
-            const options = this.makeFetchOptions("POST", { username: user, password: pass });
-            return fetch(URL + "/api/login", options, true)
-                .then(handleHttpErrors)
-                .then(res => { this.setToken(res.token) })
-        } catch (error) {
-            
-        }
+
+        const options = this.makeFetchOptions("POST", { username: user, password: pass });
+        return fetch(URL + "/api/login", options, true)
+            .then(handleHttpErrors)
+            .then(res => { this.setToken(res.token) })
+
 
     }
 
@@ -62,6 +75,5 @@ class AppFacade {
 const facade = new AppFacade();
 
 export default facade;
-
 
 

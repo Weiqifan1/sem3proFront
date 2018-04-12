@@ -9,7 +9,7 @@ export default class FetchExample extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('https://swapi.co/api/people/?page=2')
+    return fetch('https://benedikteeva.dk/jwtBackend-1.0-SNAPSHOT/api/remote/people?=results')
       .then((response) => response.json())
       .then((data) => {
 
