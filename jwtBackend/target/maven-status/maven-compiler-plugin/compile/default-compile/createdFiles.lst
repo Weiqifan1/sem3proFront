@@ -5,6 +5,7 @@ exceptions\NotFoundException.class
 security\JWTSecurityContext.class
 exceptions\AuthenticationException.class
 security\SharedSecret.class
+security\Error.class
 security\LoginEndpoint.class
 entity\User_.class
 entity\UserFacade.class
@@ -14,6 +15,7 @@ cors\CorsRequestFilter.class
 entity\Role_.class
 entity\User.class
 cors\CorsResponseFilter.class
+security\ErrorEndpoint.class
 rest\ApplicationConfig.class
 exceptions\Error.class
 security\UserPrincipal.class

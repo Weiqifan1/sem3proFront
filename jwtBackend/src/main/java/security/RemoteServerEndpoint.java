@@ -49,9 +49,55 @@ public class RemoteServerEndpoint {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String getData() throws IOException {
+        String output = getSwappiData("https://swapi.co/api");
+        return output;
+    }
+ 
+      @GET
+         @Path("/people")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPeople() throws IOException {
         String output = getSwappiData("https://swapi.co/api/people");
         return output;
     }
+      @GET
+         @Path("/vehicles")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getVehicles() throws IOException {
+        String output = getSwappiData("https://swapi.co/api/vehicles");
+        return output;
+    }
+     @GET
+         @Path("/starships")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSpaceships() throws IOException {
+        String output = getSwappiData("https://swapi.co/api/starships");
+        return output;
+    }
+   
+      @GET
+         @Path("/planets")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getPLanets() throws IOException {
+        String output = getSwappiData("https://swapi.co/api/planets");
+        return output;
+    }
+      @GET
+         @Path("/species")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getSpecies() throws IOException {
+        String output = getSwappiData("https://swapi.co/api/species");
+        return output;
+    }
+    
+     @GET
+         @Path("/films")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getFilms() throws IOException {
+        String output = getSwappiData("https://swapi.co/api/films");
+        return output;
+    }
+    
     
     public static String getSwappiData(String urlInput) throws MalformedURLException, IOException{
     URL url = new URL(urlInput);//new URL("https://swapi.co/api/people/"+id);
