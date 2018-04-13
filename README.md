@@ -17,11 +17,14 @@ yarn add react-router-dom
 npm install react-router-dom
  npm install react-navigation --save
  npm install jwt-decode
+ 
+ 
 For at arbejde med SeedMobileApp skal følgende køres fra commandlinjen
 
 
 npm install
   npm install -g create-react-native-app
-  npm install tcomb-form-native
   npm install react-navigation --save
+
+  npm install jwt-decode
   
