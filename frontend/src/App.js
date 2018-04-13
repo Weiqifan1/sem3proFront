@@ -48,18 +48,19 @@ class App extends Component {
     this.setState({ loggedIn: false });
   }
 
-  login = (user, pass) => {
-    facade.login(user, pass)
+  login =  (user, pass) => {
+  facade.login(user, pass)
       .then(res => this.setState({ loggedIn: true }));
   }
 
   render() {
 
     var userRole = this.props.userroles;
-    console.log('App: ' + userRole);
+    console.log('App: ');
     return (
       <div>
 
+        <main>
         <HashRouter>
           <div>
 
@@ -83,7 +84,6 @@ class App extends Component {
             <button onClick={this.logout}>Logout</button>
           </div>)}
 
-        <main>
         </main>
 
         {/* <SeedFooter></SeedFooter> */}

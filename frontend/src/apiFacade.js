@@ -1,4 +1,4 @@
-const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/";
+const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT";
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -31,7 +31,7 @@ class ApiFacade {
     login = (user, pass) => {
         try {
             const options = this.makeFetchOptions("POST", { username: user, password: pass });
-            return fetch(URL + "/api/login", options, true)
+            return fetch(URL + "api/login", options, true)
                 .then(handleHttpErrors)
                 .then(res => { this.setToken(res.token) })
         } catch (error) {
@@ -43,7 +43,8 @@ class ApiFacade {
     makeFetchOptions = (type, b) => {
         let headers = {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin':'*'
         }
         if (this.loggedIn()) {
             headers["x-access-token"] = this.getToken();
@@ -58,6 +59,5 @@ class ApiFacade {
 const facade = new ApiFacade();
 
 export default facade;
-
 
 

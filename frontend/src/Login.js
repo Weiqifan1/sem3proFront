@@ -85,28 +85,23 @@ export class LoggedIn extends Component {
     super(props);
     this.state = { loggedIn: false }
   }
-
   logout = () => {
     facade.logout();
     this.setState({ loggedIn: false });
   }
-
   login = (user, pass) => {
     facade.login(user, pass)
       .then(res => this.setState({ loggedIn: true }));
   }
-
   render() {
     return (
       <div>
         <div>
-
           {!this.state.loggedIn ? (<LogIn login={this.login} />) :
             (<div>
               <LoggedIn />
               <button onClick={this.logout}>Logout</button>
             </div>)}
-
         </div></div>
     )
   } */
