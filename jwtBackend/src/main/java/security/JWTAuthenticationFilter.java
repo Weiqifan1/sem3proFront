@@ -24,15 +24,29 @@ import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * 
+ * @author Ticondrus
+ */
 
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class JWTAuthenticationFilter implements ContainerRequestFilter {
+    
+    
 
  private static final List<Class<? extends Annotation>> securityAnnotations
          = Arrays.asList(DenyAll.class, PermitAll.class, RolesAllowed.class);
  @Context
  private ResourceInfo resourceInfo;
+ 
+ /**
+  * filter(...): Is if (isSecuredResource) boolean is true, requesting a HeeaderString "x-acces-token" and puting it in a String token. -
+  * If the request is empy, then the filter is aborted with a Exception message.
+  * Either way, it tries to get a UserPrincipalFromTokenIfValid(token) to a UserPrincipal user.
+  * @param request
+  * @throws IOException 
+  */
 
  @Override   
  public void filter(ContainerRequestContext request) throws IOException {
@@ -53,6 +67,12 @@ public class JWTAuthenticationFilter implements ContainerRequestFilter {
      }
    }
  }
+ 
+ /**
+  * Boolean isSecuredResource(): is defined true or false whether if resourceInfo is getting a ResourceMethoed that is annotated or not.
+  * It seems to checking that twice right right after each other.
+  * @return true or false
+  */
 
  private boolean isSecuredResource() {
 
@@ -68,6 +88,15 @@ public class JWTAuthenticationFilter implements ContainerRequestFilter {
    }
    return false;
  }
+ 
+ /**
+  * getUserPrincipalFromTokenIfValid(String token)... 
+  * @param token
+  * @return Nothing??
+  * @throws ParseException
+  * @throws JOSEException
+  * @throws AuthenticationException 
+  */
 
  private UserPrincipal getUserPrincipalFromTokenIfValid(String token)
          throws ParseException, JOSEException, AuthenticationException {
