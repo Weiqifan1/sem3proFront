@@ -16,7 +16,7 @@ yarn add react-router-dom
 # or, if you're not using yarn
 npm install react-router-dom
  npm install react-navigation --save
-
+ npm install jwt-decode
 For at arbejde med SeedMobileApp skal følgende køres fra commandlinjen
 
 
