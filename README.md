@@ -24,7 +24,7 @@ jwtBackend er nu sat op, og klar til brug :neckbeard:
 * Åben projektet i din favorit editor
 * Start projektet. Hvis du bruger npm: **npm start**. Bruger du yarn: **yarn start**
 * I din editor åbner du **apiFacade.js**. I toppen af filen **tjekker du URL variablen**, er den samme som din lokale server(urlen du kopierede i jwtBackend vejledningen.
-* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT**
+* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/backend/jwtBackend-1.0-SNAPSHOT**
 
 Du er nu klar til at kode i frontend delen :man:
 
