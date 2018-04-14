@@ -18,7 +18,7 @@ Guiden tager udgangspunkt i at du bruger Netbeans, Visual Studio Code og et komm
 
 jwtBackend er nu sat op, og klar til brug :neckbeard:
 
-#Frontend
+# Frontend
 * Gå til roden af frontend-delen i kommandline. Det gøres ved at gå til folderen, hvor du har clonede projektet. Derefter **cd CourseAssigment-3-The-Backend-\frontend** 
 * Install dependencies. Hvis du bruger npm: **npm install** - Bruger du yarn: **yarn install**
 * Åben projektet i din favorit editor
@@ -28,7 +28,7 @@ jwtBackend er nu sat op, og klar til brug :neckbeard:
 
 Du er nu klar til at kode i frontend delen :man:
 
-#SeedMobileApp
+# SeedMobileApp
 * Gå til roden af frontend-delen i kommandline. Det gøres ved at gå til folderen, hvor du har clonede projektet. Derefter **cd CourseAssigment-3-The-Backend-\SeedMobileApp** 
 * Install dependencies. Hvis du bruger npm: **npm install** - Bruger du yarn: **yarn install**
 * Åben projektet i din favorit editor
