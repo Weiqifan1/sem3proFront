@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+class Home extends Component {
+    constructor(props) {
+        super(props);
+    }
 
-const Home = () => {
-    return (
-<div></div>
-    );
+
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+
 }
 
 export default Home;

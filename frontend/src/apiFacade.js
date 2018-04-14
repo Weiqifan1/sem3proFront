@@ -1,3 +1,6 @@
+import jwtDecode from 'jwt-decode';
+
+
 const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT";
 
 function handleHttpErrors(res) {
@@ -8,15 +11,42 @@ function handleHttpErrors(res) {
 }
 
 class ApiFacade {
-
+    
     fetchData = () => {
         const options = this.makeFetchOptions("GET");
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
 
+    // læser fra token hver gang den ikke er null (hvilket og gælder med refreshes, redirects osv.)
+    getRole = () => {
+        if (facade.getToken() !== null) {
+            var userToken = this.getToken();
+            var decoded = jwtDecode(userToken);
+            //var userName = decoded.sub;
+            var userRoles = decoded.roles;
+        } else {
+            const userRole = "";
+        }
+
+        return userRoles;
+    }
+
+    getUserName = () => {
+        if (facade.getToken() !== null) {
+            var userToken = this.getToken();
+            var decoded = jwtDecode(userToken);
+            var userName = decoded.sub;
+        } else {
+            const userName = "";
+        }
+
+        return userName;
+    }
+
     setToken = (token) => {
         localStorage.setItem('jwtToken', token)
     }
+
     getToken = () => {
         return localStorage.getItem('jwtToken')
     }
@@ -31,11 +61,11 @@ class ApiFacade {
     login = (user, pass) => {
         try {
             const options = this.makeFetchOptions("POST", { username: user, password: pass });
-            return fetch(URL + "api/login", options, true)
+            return fetch(URL + "/api/login", options, true)
                 .then(handleHttpErrors)
                 .then(res => { this.setToken(res.token) })
         } catch (error) {
-            
+
         }
 
     }
@@ -43,8 +73,7 @@ class ApiFacade {
     makeFetchOptions = (type, b) => {
         let headers = {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin':'*'
+            'Content-Type': 'application/json'
         }
         if (this.loggedIn()) {
             headers["x-access-token"] = this.getToken();
@@ -56,8 +85,7 @@ class ApiFacade {
         }
     }
 }
+
 const facade = new ApiFacade();
 
 export default facade;
-
-
