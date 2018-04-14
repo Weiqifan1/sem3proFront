@@ -10,6 +10,7 @@ Vejledning består af 3 dele.
 # jwtBackend
 Guiden tager udgangspunkt i at du bruger Netbeans, Visual Studio Code og et kommandline program. For at sætte jwtBackend op starter du med at downloade projektet fra Github. Dette kan gøres fra Netbeans eller med git clone {repositorylink} i kommandolinjen.
 
+* Du kan bruge den deployede database på: **https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT** eller køre lokalt sådan her:
 * Lav et schema i din lokale database, og husk schema navnet. (Dette gøres kun en gang).
 * Åben projektet i Netbeans og gå til Other Sources/src/main/resources/META_INF. Slet persistence.xml filen.
 * Højre klik på projektet og lav en ny persistence unit som **SKAL** hedde **pu**. (Vær sikker på at du kan forbinde til din database. Brug det schema, du lige har lavet).
@@ -24,7 +25,7 @@ jwtBackend er nu sat op, og klar til brug :neckbeard:
 * Åben projektet i din favorit editor
 * Start projektet. Hvis du bruger npm: **npm start**. Bruger du yarn: **yarn start**
 * I din editor åbner du **apiFacade.js**. I toppen af filen **tjekker du URL variablen**, er den samme som din lokale server(urlen du kopierede i jwtBackend vejledningen.
-* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/**
+* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT**
 
 Du er nu klar til at kode i frontend delen :man:
 
