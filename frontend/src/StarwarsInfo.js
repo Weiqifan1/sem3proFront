@@ -1,4 +1,5 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
+import { Table } from 'reactstrap';
 
 function characterPropMany(props) {
   if (props.length > 1) {
@@ -58,7 +59,7 @@ class CharacterTable extends Component {
 
         <h3>Star Wars information to the user.</h3>
 
-        <table className="table">
+        <table className="table" responsive>
 
           <thead>
             <tr><th>Name</th><th>Height</th><th>Mass</th><th>Hair Color</th><th>Skin Color</th><th>Eye Color</th><th>Gender</th><th>Starships</th></tr>
