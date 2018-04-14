@@ -1,6 +1,13 @@
 # CourseAssigment-3
 CA3 making a seed for our group
 
+# Vejledning i at sætte seedet op
+Vejledning består af 3 dele.
+* Sæt jwtBackend op 
+* Sæt frontend op (SPA)
+* sæt seedMobilApp op (Mobile App)
+
+
 
 Skal hvis man vil køre frontenden med en deployed database skal url i en af de første linjer i api-facaden ændres til nedenstående:
 
