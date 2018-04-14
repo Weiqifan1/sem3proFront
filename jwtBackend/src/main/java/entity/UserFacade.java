@@ -13,18 +13,37 @@ import exceptions.AuthenticationException;
  * @author lam@cphbusiness.dk
  */
 public class UserFacade {
+    
+    
 
     //Default EntityManagerFactory
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
     private static final UserFacade instance = new UserFacade();
     
+    
+    
     private UserFacade(){}
+    
+    /**
+     * UserFacade(): Gets an instance of the whole UserFacade class and returns it.
+     * @return instance
+     */
     
     public static UserFacade getInstance(){
         return instance;
     }
     
+    /**
+     * getVeryfiedUser(): Gets a user that pass the login autothication by EntityManager function, and returns it.
+     * @param username
+     * @param password
+     * @return user
+     * @throws AuthenticationException 
+     * 
+     */
+    
     public User getVeryfiedUser(String username, String password) throws AuthenticationException {
+        
         EntityManager em = emf.createEntityManager();
         User user;
         try {
@@ -37,5 +56,6 @@ public class UserFacade {
         }
         return user;
     }
+    
 
 }

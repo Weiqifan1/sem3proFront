@@ -8,6 +8,13 @@ import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * 
+ * @author Ticondrus
+ * This class is logging the Response in a LOG object.
+ * It is further adding severel response headers which grants acces and control to the given request.
+ */
+
 @Provider
 @PreMatching
 public class CorsResponseFilter implements ContainerResponseFilter {

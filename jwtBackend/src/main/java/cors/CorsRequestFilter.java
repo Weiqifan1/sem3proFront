@@ -7,11 +7,24 @@ import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
+
+/**
+ * 
+ * @author Ticondrus
+ */
+
 //Comment out these two annotations below to disable CORS-handling
 @Provider  //This will ensure that the filter is used "automatically"
 @PreMatching
 public class CorsRequestFilter implements ContainerRequestFilter {
   private final static Logger log = Logger.getLogger(CorsRequestFilter.class.getName());
+  
+  /**
+   * filer(...): Is loging the ContainerRequestContext and abort request with a OK status response.
+   * So the response can get the desired response instead of denial.
+   * @param requestCtx
+   * @throws IOException 
+   */
   @Override
   public void filter(ContainerRequestContext requestCtx) throws IOException {
     // When HttpMethod comes as OPTIONS, just acknowledge that it accepts...

@@ -5,45 +5,45 @@ import { StackNavigator } from 'react-navigation';
 import Form from 'react-native-form'
 
 
-export class LogIn extends Component {
+export  class LogIn extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: "", password: "" }
+    this.state = { username: "", password: "" , LoggedIn: false}
   }
 
-  login = (evt) => {
-    evt.preventDefault();
-  this.props.login(this.state.username, this.state.password);
-  }
+/*   login = async (evt) => {
 
-  onChange = (evt) => {
-    this.setState({ [evt.target.id]: evt.target.value })
-  }
-
-
-
-
+ evt.preventDefault();
+evt.stopPropagation()
+    try{
+ await facade.login(this.state.username, this.state.password);
+    }catch(error){
+console.log(error)
+    }
+ 
+ alert ("logn" +this.state.username) 
+  } */
 
 
 
   render() {
-
     return (
       <View style={{ padding: 20 }}>
 
         <Text
           style={{ fontSize: 27 }}>
           Login
-              </Text >
-        <Form onChange={this.onChange} >
-          <TextInput placeholder='Username' id="username"  />
-          <TextInput placeholder='Password' id="password" />
-
-          <Button
-           onPress={LogIn.login}
+              </Text  >
+    
+          <TextInput placeholder='Username'  onChangeText={(username)=> this.setState({username:username})}/>
+          <TextInput placeholder='Password'onChangeText={(password)=> this.setState({password:password})}  />
+      
+        <Button
+           onPress={async ()=> facade.login(this.state.username,this.state.password)
+            .then(res => Login.setState({ loggedIn: true }))}
             title="Submit"
-          />
-        </Form>
+          /> 
+       
       </View>
     )
   }
@@ -52,10 +52,11 @@ export class LogIn extends Component {
 export class LoggedIn extends Component {
   constructor(props) {
     super(props);
-    this.state = { dataFromServer: "Fetching!!" };
+    this.state = { dataFromServer: []};
   }
   componentDidMount() {
-    facade.fetchData().then(res => this.setState({ dataFromServer: res }));
+   facade.fetchData().then(res => this.setState({ dataFromServer: res }));
+    alert("something"+this.state.dataFromServer)
   }
   render() {
     return (
@@ -80,20 +81,19 @@ export default class Login extends Component {
     this.state = { loggedIn: false }
   }
 
-  logout = () => {
-    facade.logout();
+  logout = async () => {
+  await  facade.logout();
     this.setState({ loggedIn: false });
   }
 
-  login = (user, pass) => {
-    facade.login(user, pass)
-      .then(res => this.setState({ loggedIn: true }));
+
+
+  
+  onChange = async(evt) => {
+ await this.setState({ [evt.target.id]: evt.target.value })
   }
-  onChange = (evt) => {
-    this.setState({ [evt.target.id]: evt.target.value })
-  }
-  handleSubmit = (evt) => {
-    this.props.login(this.state.username, this.state.password);
+  handleSubmit = async(evt) => {
+   await this.props.login(this.state.username, this.state.password);
   }
 
 
@@ -101,7 +101,7 @@ export default class Login extends Component {
 
     return (
       <View style={{ padding: 20 }}>
-        {!this.state.loggedIn ? (<LogIn login={this.login()} />) :
+        {!this.state.loggedIn===true ? (<LogIn  />) :
           <LoggedIn />
 
         }
