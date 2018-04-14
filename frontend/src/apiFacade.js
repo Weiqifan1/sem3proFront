@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode';
 
 
-const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT";
+const URL = "http://localhost:8084/jwtbackend";
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -17,12 +17,11 @@ class ApiFacade {
         return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
     }
 
-    // læser fra token hver gang den ikke er null (hvilket og gælder med refreshes, redirects osv.)
+    // læser fra token hver gang den ikke er null (hvilket også gælder med refreshes, redirects osv.)
     getRole = () => {
         if (facade.getToken() !== null) {
             var userToken = this.getToken();
             var decoded = jwtDecode(userToken);
-            //var userName = decoded.sub;
             var userRoles = decoded.roles;
         } else {
             const userRole = "";
