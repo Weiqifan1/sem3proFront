@@ -10,7 +10,7 @@ Vejledning består af 3 dele.
 # jwtBackend
 Guiden tager udgangspunkt i at du bruger Netbeans, Visual Studio Code og et kommandline program. For at sætte jwtBackend op starter du med at downloade projektet fra Github. Dette kan gøres fra Netbeans eller med git clone {repositorylink} i kommandolinjen.
 
-* Lav et schema i din lokale database, og husk schema navnet.
+* Lav et schema i din lokale database, og husk schema navnet. (Dette gøres kun en gang).
 * Åben projektet i Netbeans og gå til Other Sources/src/main/resources/META_INF. Slet persistence.xml filen.
 * Højre klik på projektet og lav en ny persistence unit som **SKAL** hedde **pu**. (Vær sikker på at du kan forbinde til din database. Brug det schema, du lige har lavet).
 * Opret databasen(skal **KUN** gøres hvis det er første gang projektet køres lokalt). Åben Source Packages/Utils og kør **SetupTestUsers.java**. Dette opretter en test database.
