@@ -32,5 +32,15 @@
   text-decoration: none;
   padding: 10px;
   display: inline-block;
+}
 
+.imgPreview{
+  text-align: center;
+  margin: 10px 25px;
+  height: 400px;
+  width: 600px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 5px solid gray;
+  border-bottom: 5px solid gray;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
-//import starwarstheme from './images/starwars-theme.jpg';
+import starwarstheme from './images/starwars-theme.jpg';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +20,7 @@ class Home extends Component {
                 {/* <a href="Login" className="alert-link"> Example link to refresh to Login page or easily set to another page. </a> */}
                 {/* </Alert> */}
                                 
-                {/* <img src={starwarstheme} className="imgPreview" /> */}
+                <img src={starwarstheme} className="imgPreview" /> 
                  
                 
 
