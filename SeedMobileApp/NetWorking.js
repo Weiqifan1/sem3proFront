@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import { FlatList, ActivityIndicator, Text, View , Image  } from 'react-native';
 
 export default class FetchExample extends React.Component {
 
@@ -38,6 +38,7 @@ export default class FetchExample extends React.Component {
     }
     return(
       <View style={{flex: 1, paddingTop:20}}>
+ <Text> Get data from remoteserver through our own server</Text>
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => <Text>{item.name}, {item.gender}</Text>}

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import facade from "./AppFacade";
-import { Text, View, StyleSheet, TouchableOpacity, Button, ScrollView, Touchable, TextInput } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Button, ScrollView, Touchable, TextInput, Image  } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Form from 'react-native-form'
 
@@ -29,15 +29,17 @@ console.log(error)
   render() {
     return (
       <View style={{ padding: 20 }}>
-
+  <Image source={require('./yodaicon.jpg')}/>
         <Text
           style={{ fontSize: 27 }}>
           Login
               </Text  >
-    
-          <TextInput placeholder='Username'  onChangeText={(username)=> this.setState({username:username})}/>
-          <TextInput placeholder='Password'onChangeText={(password)=> this.setState({password:password})}  />
-      
+              <Text
+          style={{ fontSize: 16 }}>
+          (virker ikke)
+              </Text  >
+          <TextInput placeholder='Username'  onChangeText={(username)=> this.setState({username:username})} />
+          <TextInput placeholder='Password'onChangeText={(password)=> this.setState({password:password})} />
         <Button
            onPress={async ()=> facade.login(this.state.username,this.state.password)
             .then(res => Login.setState({ loggedIn: true }))}
@@ -120,6 +122,6 @@ const styles = StyleSheet.create({
 });
 /* npm install
   npm install -g create-react-native-app
-
+ npm install navigationbar-react-native
   npm install react-navigation --save */
 
