@@ -11,10 +11,19 @@ function handleHttpErrors(res) {
 }
 
 class ApiFacade {
-    
+
     fetchData = () => {
-        const options = this.makeFetchOptions("GET");
-        return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        const userRole = this.getRole();
+        if (userRole === "user") {
+            const options = this.makeFetchOptions("GET");
+            return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        } else if (userRole === "admin") {
+            const options = this.makeFetchOptions("GET");
+            return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);
+        } else {
+            console.log('Error in fetchData - apiData.js');
+        }
+
     }
 
     // læser fra token hver gang den ikke er null (hvilket også gælder med refreshes, redirects osv.)
