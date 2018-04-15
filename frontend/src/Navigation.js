@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Nav } from 'reactstrap';
 import apiFacade from './apiFacade';
 
 const Navigation = () => {
@@ -10,7 +11,7 @@ const Navigation = () => {
         <div>
 
             <ul className="header">
-
+                
                 <li><NavLink exact activeClassName="active" to="/">Home</NavLink></li>
                 {(userRole === "user" || userRole === "admin") && <li><NavLink activeClassName="active" to="/about">About</NavLink></li>}
                 {(userRole === "user" || userRole === "admin") && <li><NavLink activeClassName="active" to="/texts">Texts</NavLink></li>}

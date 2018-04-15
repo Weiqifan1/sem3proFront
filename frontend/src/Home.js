@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Alert, ButtonDropdown } from 'reactstrap';
-//import starwarstheme from './starwars-theme.jpg';
+import { Alert } from 'reactstrap';
+//import starwarstheme from './images/starwars-theme.jpg';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -16,11 +16,12 @@ class Home extends Component {
                     Welcome to intro site.
                 </Alert>
 
-                <Alert color="secondary">
-                    <a href="Login" className="alert-link"> Example link to refresh to Login page or easily set to another page. </a>
-                </Alert>
-
-            {/* <img src={starwarstheme} className="imgPreview" /> */}
+                {/* <Alert color="secondary"> */}
+                {/* <a href="Login" className="alert-link"> Example link to refresh to Login page or easily set to another page. </a> */}
+                {/* </Alert> */}
+                                
+                {/* <img src={starwarstheme} className="imgPreview" /> */}
+                 
                 
 
             </div>

@@ -55,7 +55,7 @@ class CharacterTable extends Component {
 
                 <h3>Admin you have accees to special information about Star Wars.</h3>
 
-                <table className="table" responsive>
+                <Table striped>
 
                     <thead>
                         <tr><th>Species</th><th>Vehicles</th><th>Homeworld</th><th>Birth Year</th><th>Created</th><th>Edited</th><th>Url</th></tr>
@@ -63,7 +63,7 @@ class CharacterTable extends Component {
                     <tbody>
                         {this.state.characters}
                     </tbody>
-                </table>
+                </Table>
 
             </div>
         );
