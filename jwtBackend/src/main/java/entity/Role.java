@@ -21,6 +21,8 @@ import javax.validation.constraints.Size;
 /**
  *
  * @author Plaul
+ * 
+ * Javadoc: Role.java is a class for getters and setters of the user role.
  */
 @Entity
 @Table(name = "roles")

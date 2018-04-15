@@ -1,4 +1,7 @@
-const URL = "http://localhost:8080/jwtbackend";
+import jwtDecode from 'jwt-decode';
+
+//const URL = "http://localhost:8084/jwtbackend";
+const URL = "https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT";
 
 function handleHttpErrors(res) {
     if (!res.ok) {
@@ -10,13 +13,48 @@ function handleHttpErrors(res) {
 class ApiFacade {
 
     fetchData = () => {
-        const options = this.makeFetchOptions("GET");
-        return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        const userRole = this.getRole();
+        if (userRole === "user") {
+            const options = this.makeFetchOptions("GET");
+            return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+        } else if (userRole === "admin") {
+            const options = this.makeFetchOptions("GET");
+            return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);
+        } else {
+            console.log('Error in fetchData - apiData.js');
+        }
+
+    }
+
+    // læser fra token hver gang den ikke er null (hvilket også gælder med refreshes, redirects osv.)
+    getRole = () => {
+        if (facade.getToken() !== null) {
+            var userToken = this.getToken();
+            var decoded = jwtDecode(userToken);
+            var userRoles = decoded.roles;
+        } else {
+            const userRole = "";
+        }
+
+        return userRoles;
+    }
+
+    getUserName = () => {
+        if (facade.getToken() !== null) {
+            var userToken = this.getToken();
+            var decoded = jwtDecode(userToken);
+            var userName = decoded.sub;
+        } else {
+            const userName = "";
+        }
+
+        return userName;
     }
 
     setToken = (token) => {
         localStorage.setItem('jwtToken', token)
     }
+
     getToken = () => {
         return localStorage.getItem('jwtToken')
     }
@@ -35,7 +73,7 @@ class ApiFacade {
                 .then(handleHttpErrors)
                 .then(res => { this.setToken(res.token) })
         } catch (error) {
-            
+
         }
 
     }
@@ -55,9 +93,7 @@ class ApiFacade {
         }
     }
 }
+
 const facade = new ApiFacade();
 
 export default facade;
-
-
-
