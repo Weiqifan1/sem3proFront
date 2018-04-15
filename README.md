@@ -33,7 +33,7 @@ Du er nu klar til at kode i frontend delen :man:
 * Install dependencies. Hvis du bruger npm: **npm install** - Bruger du yarn: **yarn install**
 * Åben projektet i din favorit editor
 * I din editor åbner du **apiFacade.js**. I toppen af filen **tjekker du URL variablen**, er den samme som din lokale server(urlen du kopierede i jwtBackend vejledningen.
-* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/jwtBackend%2D1.0%2DSNAPSHOT/**
+* Hvis du vil køre med en **deployed database** skal urlen være: **https://benedikteeva.dk/backend/jwtBackend%2D1.0%2DSNAPSHOT/**
 * Start projektet. Hvis du bruger npm: **npm start**. Bruger du yarn: **yarn start**
 * Sørg for at der er strøm på din mobil, og sæt den til at lade op mens du koder.
 * Åben Expo appen i din smartphone.
