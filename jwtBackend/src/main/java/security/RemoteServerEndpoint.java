@@ -45,6 +45,8 @@ public class RemoteServerEndpoint {
 
     }
     */
+    //nedenstående kunne være blevet gjort med et array af endpoints og en enkelt metode men ...
+    
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,14 +54,15 @@ public class RemoteServerEndpoint {
         String output = getSwappiData("https://swapi.co/api");
         return output;
     }
- 
-      @GET
-         @Path("/people")
+     
+   @GET
+    @Path("/people")
     @Produces(MediaType.APPLICATION_JSON)
     public String getPeople() throws IOException {
         String output = getSwappiData("https://swapi.co/api/people");
         return output;
     }
+
       @GET
          @Path("/vehicles")
     @Produces(MediaType.APPLICATION_JSON)
