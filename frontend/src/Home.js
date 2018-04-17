@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Alert } from 'reactstrap';
-import starwarstheme from './images/starwars-theme.jpg';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -12,17 +11,37 @@ class Home extends Component {
         return (
             <div>
 
-                <Alert color="success">
-                    Welcome to intro site.
-                </Alert>
 
-                {/* <Alert color="secondary"> */}
-                {/* <a href="Login" className="alert-link"> Example link to refresh to Login page or easily set to another page. </a> */}
-                {/* </Alert> */}
-                                
-                <img src={starwarstheme} className="imgPreview" /> 
-                 
-                
+               <h2>Welcome "insert username"</h2>
+
+                <div>
+                <HashRouter>
+          <div>
+
+    
+
+            <Switch>
+              <Route exact path="/" component={Home} />
+              
+             {/*  <Route path="/Register" component={Register} />
+              <Route path="/Login" component={Login} />
+              <Route path="/searchresults" component={Search} />
+              <Route component={NoMatch} /> */}
+            </Switch>
+          </div>
+
+        </HashRouter>
+
+// ligin - {Welcome}
+// registrer - {RegistartionForm}
+// søg restaurenter intast location {Search}
+// intast valgmuligheder
+            
+
+
+              
+
+                </div>
 
             </div>
         )
@@ -31,3 +50,8 @@ class Home extends Component {
 }
 
 export default Home;
+const NoMatch = () => (
+    <div>
+      <h1>404 Wrong url!</h1>
+    </div>
+  );
